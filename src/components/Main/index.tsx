@@ -7,6 +7,7 @@ import { Button } from "../Shadcn/Button";
 import { CirclePlus } from "lucide-react";
 import { FunctionComponent, useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
+import { Cart } from "../Cart";
 
 interface Product {
   id: number;
@@ -75,6 +76,8 @@ export const Main = () => {
           );
         })}
       </div>
+
+      <Cart />
     </main>
   );
 };
