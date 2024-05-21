@@ -33,7 +33,10 @@ export const Cart = () => {
 
   const getProducts = () => Object.values(cart || {});
 
-  const [goal, setGoal] = useState(350);
+  const totalPrice = getProducts().reduce(
+    (accumulator, product) => accumulator + product.price * product.quantity,
+    0
+  );
 
   const handleRemoveProduct = (productId: number): void => {
     setCart((prevCart) => {
@@ -95,9 +98,9 @@ export const Cart = () => {
               </div>
             ))}
           </div>
-
           <DrawerFooter>
-            <Button>Submit</Button>
+            <div className="text-lg font-bold">Total price: {totalPrice}</div>
+            <Button>Place order</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
