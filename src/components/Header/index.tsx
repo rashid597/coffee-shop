@@ -1,4 +1,4 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Star } from "lucide-react";
 import BrewLogo from "../../assets/BrewLogo.png";
 import { Badge } from "../Shadcn/Badge";
 import { Cart } from "../Cart";
@@ -7,9 +7,13 @@ const Header = () => {
   console.log();
   return (
     <>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center my-4">
         <div className="flex-1  mx-3">
-          <img src={BrewLogo} className="w-20" alt="BrewLogo" />
+          {/* <img src={BrewLogo} className="w-20" alt="BrewLogo" /> */}
+          <p className="flex items-center text-amber-800">
+            <Star className="mr-2" />{" "}
+            <span className="font-bold text-lg">Star Coffee Shop</span>
+          </p>
           {/* Start coffee shop */}
         </div>
         <div className="flex-1">

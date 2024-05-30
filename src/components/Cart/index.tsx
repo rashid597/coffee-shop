@@ -14,6 +14,7 @@ import { Minus, Plus, ShoppingCart } from "lucide-react";
 
 import useLocalStorageState from "use-local-storage-state";
 import { Operation, Quantifier } from "../Quantifier";
+import { OrderFinalizer } from "../OrderFinalizer";
 
 interface Product {
   id: number;
@@ -73,7 +74,7 @@ export const Cart = () => {
         <div className="mx-4 cursor-pointer relative">
           <ShoppingCart className="text-amber-800" />
           <p className="absolute -top-2 -right-4 bg-amber-800 px-1 rounded-lg text-white my-1 text-sm">
-            8
+            {getProducts().length}
           </p>
         </div>
       </DrawerTrigger>
@@ -100,7 +101,17 @@ export const Cart = () => {
           </div>
           <DrawerFooter>
             <div className="text-lg font-bold">Total price: {totalPrice}</div>
-            <Button>Place order</Button>
+            <DrawerClose asChild>
+              <OrderFinalizer />
+
+              {/* <Button
+                onClick={() => {
+                  setCart({});
+                }}
+              >
+                Place order
+              </Button> */}
+            </DrawerClose>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
