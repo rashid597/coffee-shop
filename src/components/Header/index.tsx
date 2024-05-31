@@ -2,6 +2,7 @@ import { ShoppingCart, Star } from "lucide-react";
 import BrewLogo from "../../assets/BrewLogo.png";
 import { Badge } from "../Shadcn/Badge";
 import { Cart } from "../Cart";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   console.log();
@@ -18,9 +19,15 @@ const Header = () => {
         </div>
         <div className="flex-1">
           <ul className="list-none flex  justify-around text-amber-800">
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/contact"}>Contact</Link>
+            </li>
           </ul>
         </div>
         <div className="flex-1 flex justify-end relative ">
