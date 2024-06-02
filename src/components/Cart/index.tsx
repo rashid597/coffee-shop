@@ -12,6 +12,8 @@ import {
 import { Button } from "../Shadcn/Button";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 
+import EmptyCart from "../../assets/empty-card.svg";
+
 import useLocalStorageState from "use-local-storage-state";
 import { Operation, Quantifier } from "../Quantifier";
 import { OrderFinalizer } from "../OrderFinalizer";
@@ -81,6 +83,14 @@ export const Cart = () => {
       <DrawerContent className="">
         <div className="mx-auto w-full">
           <div className="flex flex-wrap">
+            {getProducts().length ? null : (
+              <div className="flex flex-col items-center w-full">
+                <img width={"150px"} src={EmptyCart} />
+                <p>Your cart is empty</p>
+                <p>Add items to place order</p>
+              </div>
+            )}
+
             {getProducts().map((product) => (
               <div className="w-[300px] border m-2 p-2 rounded-md">
                 <div className="flex items-center">
@@ -100,7 +110,9 @@ export const Cart = () => {
             ))}
           </div>
           <DrawerFooter>
-            <div className="text-lg font-bold">Total price: {totalPrice}</div>
+            {getProducts().length ? (
+              <div className="text-lg font-bold">Total price: {totalPrice}</div>
+            ) : null}
             <DrawerClose asChild>
               <OrderFinalizer />
 
