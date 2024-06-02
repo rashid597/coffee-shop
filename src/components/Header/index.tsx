@@ -2,6 +2,7 @@ import { ShoppingCart, Star } from "lucide-react";
 import BrewLogo from "../../assets/BrewLogo.png";
 import { Badge } from "../Shadcn/Badge";
 import { Cart } from "../Cart";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   console.log();
@@ -10,17 +11,25 @@ const Header = () => {
       <div className="flex justify-between items-center my-4">
         <div className="flex-1  mx-3">
           {/* <img src={BrewLogo} className="w-20" alt="BrewLogo" /> */}
-          <p className="flex items-center text-amber-800">
-            <Star className="mr-2" />{" "}
-            <span className="font-bold text-lg">Star Coffee Shop</span>
+          <p className="text-amber-800">
+            <Link className="flex items-center" to={"/"}>
+              <Star className="mr-2" />{" "}
+              <span className="font-bold text-lg">Star Coffee Shop</span>
+            </Link>
           </p>
           {/* Start coffee shop */}
         </div>
         <div className="flex-1">
           <ul className="list-none flex  justify-around text-amber-800">
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/contact"}>Contact</Link>
+            </li>
           </ul>
         </div>
         <div className="flex-1 flex justify-end relative ">
